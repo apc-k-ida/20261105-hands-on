@@ -1,0 +1,32 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Prepare release note",
+      "owner": "alice",
+      "due_date": "2026-07-01",
+      "done": false
+    },
+    {
+      "id": 2,
+      "title": "Update onboarding docs",
+      "owner": "bob",
+      "due_date": "2026-07-10",
+      "done": false
+    },
+    {
+      "id": 3,
+      "title": "Refactor parser",
+      "owner": "alice",
+      "due_date": "2026-06-25",
+      "done": true
+    },
+    {
+      "id": 4,
+      "title": "Add logging",
+      "owner": "charlie",
+      "due_date": "2026-06-20",
+      "done": false
+    }
+  ]
+}
