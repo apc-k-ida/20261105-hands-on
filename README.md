@@ -132,6 +132,10 @@ AI が新規に作成・編集した内容については、「保持」「keep�
 | [Phase 4](phase4.md#phase-4-マルチエージェントによる一連の動作体験) | マルチエージェントによる一連の動作体験 | 15分 | 5 AI Credits(GPT-5.6 Luna) |
 | [Phase 5](phase5.md#phase-5-microsoft-learn-mcp-を使った公式情報の参照) | Microsoft Learn MCP とセキュリティ | 15分 | MCP 利用状況による |
 
+Phase 5 では、MCP 設定を保存した後、設定ファイル上の「起動」を選び、状態が「実行中」に変わることを確認します。
+
+![VS Code で Microsoft Learn MCP Server の「起動」を選択する](./assets/mcp-server-start.png)
+
 ## ハンズオンの後片付け
 
 ### a. Codespaces を利用した場合
