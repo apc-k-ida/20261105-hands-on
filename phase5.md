@@ -27,7 +27,7 @@ Microsoft Learn MCP Server は、Microsoft Learn の公開ドキュメントや�
 
 ---
 
-## 05-1. MCP を設定する前の回答を記録する
+## 05-1. MCP を設定する前の回答を確認する
 
 このハンズオンは、Microsoft Learn MCP Server を初めて利用する方を対象としています。まず、MCP を設定する前に、Copilot Chat の Agent モードで次のプロンプトを送信してください。
 
