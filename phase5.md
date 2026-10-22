@@ -64,17 +64,24 @@ Learn MCP が利用できないことと、現在のサポート状況として�
 
 ## 05-2. Microsoft Learn MCP Server を接続する
 
-Microsoft Learn MCP Server はリモートサーバーのため、ローカルにパッケージをインストールせず、接続先を VS Code に登録します。コマンドパレットから **MCP: Add Server** を実行します。接続方法に **HTTP** を選び、以下の URL を入力します。設定先はこのハンズオン用ワークスペースを選択してください。VS Code がサーバーの信頼を確認した場合は、接続先を確認してから許可します。
+Microsoft Learn MCP Server はリモートサーバーのため、ローカルにパッケージをインストールせず、ワークスペース設定ファイルに接続先を登録します。VS Code のワークスペース MCP 設定ファイルは `.vscode/mcp.json` です。次のプロンプトを Copilot Chat の Agent モードに送信し、設定ファイルを作成してもらいます。
 
-```text
-https://learn.microsoft.com/api/mcp
-```
+> **プロンプト**
+>
+> ```text
+> このワークスペースで Microsoft Learn MCP Server を使えるように設定してください。
+> VS Code のワークスペース MCP 設定ファイル `.vscode/mcp.json` を作成または更新し、
+> `microsoft-learn` という ID で、HTTP 接続先 `https://learn.microsoft.com/api/mcp` を登録してください。
+> VS Code の形式に合わせてトップレベルキーは `servers` にしてください。
+> 既存の `.vscode/mcp.json` がある場合は、他のサーバー設定を保持して追加してください。
+> 秘密情報や不要な依存関係は追加せず、JSON 構文を確認してから、変更したファイルと内容を説明してください。
+> ```
 
-設定ファイルを選ぶ場合は、ワークスペースルートの `.mcp.json` を選択します。設定例は次のとおりです。
+Copilot が提案した変更を確認して保持し、`.vscode/mcp.json` の内容が次の構造になっていることを確認します。以下は確認用の例です。ファイルの内容を手入力する必要はありません。
 
 ```json
 {
-  "mcpServers": {
+  "servers": {
     "microsoft-learn": {
       "type": "http",
       "url": "https://learn.microsoft.com/api/mcp"
@@ -83,17 +90,18 @@ https://learn.microsoft.com/api/mcp
 }
 ```
 
-設定後、VS Code の MCP サーバー一覧で `microsoft-learn` が起動していることを確認します。チャットのツール一覧にも Learn MCP の検索・取得ツールが表示されることを確認してください。ツール名は変更されることがあるため、表示された名前を確認します。
+保存後、VS Code が表示する **Start** を選択するか、MCP サーバー一覧から `microsoft-learn` を起動します。サーバーの信頼確認が表示された場合は、接続先を確認してから許可してください。チャットのツール一覧にも Learn MCP の検索・取得ツールが表示されることを確認します。ツール名は変更されることがあるため、表示された名前を確認してください。
 
 **Copilot の動き**
 
-- VS Code が Microsoft Learn のリモート MCP Server に接続します。
+- VS Code が `.vscode/mcp.json` を読み込み、Microsoft Learn のリモート MCP Server に接続します。
 - サーバーが提供するドキュメント検索・取得などのツールを Copilot Chat から利用可能にします。
 
 ✅ **期待する結果**
 
 ```text
-microsoft-learn が起動し、Learn MCP のツールがチャットのツール一覧に表示される。
+.vscode/mcp.json に microsoft-learn が登録され、サーバーが起動する。
+Learn MCP のツールがチャットのツール一覧に表示される。
 ```
 
 ---
@@ -167,11 +175,11 @@ Microsoft Learn MCP は公開ドキュメントを検索・取得する読み取
 
 | 症状 | 対処 |
 | ------ | ------ |
-| MCP サーバーが一覧に出ない | `.mcp.json` の JSON 構文と URL を確認し、VS Code の MCP サーバー一覧から再起動する |
+| MCP サーバーが一覧に出ない | `.vscode/mcp.json` の JSON 構文、トップレベルの `servers` キー、URL を確認し、VS Code の MCP サーバー一覧から再起動する |
 | サーバーは起動しているがツールが出ない | VS Code のチャットツール一覧を更新し、サーバーの起動ログと信頼状態を確認する |
 | 質問しても MCP ツールが呼ばれない | Agent モードで、Microsoft Learn MCP の検索・取得ツールを使うよう明示して再度質問する |
 | 接続できない | ネットワークやプロキシで `https://learn.microsoft.com` への接続が許可されているか確認する |
 
 ---
 
-Phase 5 は以上です。ハンズオン後は、追加した `.mcp.json` を削除してください。
+Phase 5 は以上です。ハンズオン後は、`.vscode/mcp.json` から `microsoft-learn` の設定だけを削除してください。このハンズオンのためにファイルを新規作成し、ほかの設定がない場合は、ファイルごと削除して構いません。
