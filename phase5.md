@@ -175,7 +175,7 @@ Microsoft Learn MCP は公開ドキュメントを検索・取得する読み取
 
 | 症状 | 対処 |
 | ------ | ------ |
-| MCP サーバーが一覧に出ない | `.vscode/mcp.json` の JSON 構文、トップレベルの `servers` キー、URL を確認し、VS Code の MCP サーバー一覧から再起動する |
+| MCP サーバーが一覧に出ない | `.vscode/mcp.json` の JSON 構文、トップレベルの `servers` キー、URL を確認します。VS Code の **拡張機能**ビュー（`Ctrl+Shift+X` / macOS は `⇧⌘X`）を開き、MCP サーバーの一覧で `microsoft-learn` の状態を確認してください。表示されていない場合は設定ファイルを保存し直し、停止中の場合は一覧から起動または再起動します |
 | サーバーは起動しているがツールが出ない | VS Code のチャットツール一覧を更新し、サーバーの起動ログと信頼状態を確認する |
 | 質問しても MCP ツールが呼ばれない | Agent モードで、Microsoft Learn MCP の検索・取得ツールを使うよう明示して再度質問する |
 | 接続できない | ネットワークやプロキシで `https://learn.microsoft.com` への接続が許可されているか確認する |
